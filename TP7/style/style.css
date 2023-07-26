@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+}
+header {
+    background-color: #009688;
+    color: #fff;
+}
+header img {
+    width: 100px;
+    height: 60px;
+    margin: 5px;
+    margin-left: 30px;
+}
+header .menu {
+    list-style-type: none;
+    float: right;
+    margin-right: 30px;
+}
+header .menu li {
+    display: inline;
+    margin: 2px 8px;
+}
+header .menu li a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+}
+.container {
+    display: grid;
+    place-items: center;
+}
+.container form input {
+    margin: 5px;
+}
+.success, .error {
+    color: #fff;
+    width: 300px;
+    height: 25px;
+    text-align: center;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 5px;
+}
+.success {
+    border: 1px solid rgb(1, 65, 1);
+    background-color: #4CAF50;
+}
+.error {
+    border: 1px solid rgb(87, 0, 0);
+    background-color: red;
+}
+.container form input[type="submit"], input[type=button] {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+.etudiants_view table {
+    min-width: 800px;
+    margin: auto;
+}
+.etudiants_view table th {
+    text-align: left;
+}
+button.update, button.delete {
+    box-shadow: 1px 1px 1px #000;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+button.update {
+    background-color: #FF9800;
+    border: 1px solid #FF9800;
+
+}
+button.delete {
+    background-color: #F44336;
+    border: 1px solid #F44336;
+}
+.msg {
+    color: red;
+    font-size: 14px;
+    font-style: oblique;
+}
+
+.recherche {
+    margin: 20px 40px;
+}

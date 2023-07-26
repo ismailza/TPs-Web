@@ -1,0 +1,22 @@
+.container {
+    display: grid;
+    place-items: center;
+}
+.container form input {
+    margin: 5px;
+}
+.success {
+    border: 1px solid green;
+    background-color: greenyellow;
+    color: #fff;
+}
+.container form input[type="submit"], input[type=button] {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+.etudiants_view table {
+    min-width: 800px;
+}

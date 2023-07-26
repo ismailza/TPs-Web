@@ -1,0 +1,19 @@
+<!ELEMENT operateur (client*) >
+<!ELEMENT client (abonnement+) >
+<!ELEMENT abonnement (facture*) >
+<!ELEMENT facture EMPTY >
+<!ATTLIST client 
+            code CDATA #REQUIRED
+            nom CDATA  #REQUIRED
+>
+<!ATTLIST abonnement
+            num CDATA #REQUIRED
+            type (FIXE|GSM) 'GSM'
+            dateAb CDATA #REQUIRED
+>
+<!ATTLIST facture
+            numFact CDATA #REQUIRED
+            dateFac CDATA #REQUIRED
+            montant CDATA #REQUIRED
+            reglee (OUI|NON) 'NON'
+>

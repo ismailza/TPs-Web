@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    vc:minVersion="1.1">
+    
+    <xsd:element name="bibliotheque">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="etudiant" type="Etudiant" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+        
+    <xsd:complexType name="Etudiant">
+        <xsd:sequence>
+            <xsd:element name="livre" type="Livre" maxOccurs="unbounded"/>
+        </xsd:sequence>
+                 
+        <xsd:attribute name="code" type="xsd:integer" use="required"/>
+        <xsd:attribute name="nom" type="xsd:string" use="required"/>
+        <xsd:attribute name="prenom" type="xsd:string" use="required"/>
+        <xsd:attribute name="age" type="xsd:nonNegativeInteger" use="required"/>
+        <xsd:attribute name="email" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:pattern value="[a-z](.)*@(.)+[.](.){2,}"></xsd:pattern>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:complexType name="Livre">
+        <xsd:attribute name="id" type="xsd:nonNegativeInteger" use="required"/>
+        <xsd:attribute name="titre" type="xsd:string" use="required"/>
+        <xsd:attribute name="datePret" type="xsd:date" use="required"/>
+        <xsd:attribute name="rendu" default="NON">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="OUI"/>
+                    <xsd:enumeration value="NON"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+        
+</xsd:schema>

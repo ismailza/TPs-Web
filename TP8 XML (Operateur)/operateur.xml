@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE operateur SYSTEM "operateur.dtd">
+<?xml-stylesheet type="text/xsl" href="operateur.xsl" ?>
+<operateur xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="operateur.xsd">
+    <client code="1" nom="Hassouni">
+        <abonnement num="123" type="GSM" dateAb="2006-01-11">
+            <facture numFact="432" dateFact="2006-02-11" montant="350.44" reglee="OUI"/>
+            <facture numFact="5342" dateFact="2006-03-11" montant="450" reglee="OUI"/>
+            <facture numFact="5362" dateFact="2006-04-13" montant="800.54" reglee="NON"/>
+        </abonnement>
+        <abonnement num="2345" dateAb="2006-12-01" type="FIXE">
+            <facture numFact="5643" dateFact="2007-01-12" montant="299" reglee="OUI"/>
+            <facture numFact="6432" dateFact="2007-02-12" montant="555"/>
+        </abonnement>
+    </client>
+    <client code="2" nom="Abbassi">
+        <abonnement num="7543" dateAb="2006-12-01" type="GSM">
+            <facture numFact="7658" dateFact="2007-02-12" montant="350.44" reglee="OUI"/>
+            <facture numFact="7846" dateFact="2007-03-12" montant="770" reglee="NON"/>
+        </abonnement>
+    </client>
+</operateur>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+    <style>
+        table {
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 2px;
+            margin: auto;
+            background-color: rgb(228, 215, 215);
+        }
+        table td {
+            width: 35px;
+            height: 35px;
+            padding: 0;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid rgb(0, 102, 255);
+            border-radius: 5px;
+            box-shadow: 1px 0px 1px black;
+            background-color: rgb(245, 245, 245);
+        }
+        table td:hover {
+            border: 1px solid rgb(30, 17, 219);
+            background-color: rgb(156, 226, 217);
+            cursor: pointer;
+        }
+        #ecran {
+            background-color: #000;
+            color: rgb(13, 255, 13);
+            text-align: right;
+            box-shadow: 0;
+            border-radius: 5px;
+            border: 0;
+            cursor: auto;
+            width: 195px;
+            height: 35px;
+        }
+        #cel_ecran {
+            border: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1 align="center">Calculatrice</h1>
+        <table cellspacing="5">
+            <tr>
+                <td id="cel_ecran" colspan="5"><input id="ecran" type="text" value="0" readonly></td>
+            </tr>
+            <tr>
+                <td onclick="calculer(0,'7')">7</td>
+                <td onclick="calculer(0,'8')">8</td>
+                <td onclick="calculer(0,'9')">9</td>
+                <td onclick="calculer(2,'C')">C</td>
+                <td onclick="calculer(2,'E')">CE</td>
+            </tr>
+            <tr>
+                <td onclick="calculer(0,'4')">4</td>
+                <td onclick="calculer(0,'5')">5</td>
+                <td onclick="calculer(0,'6')">6</td>
+                <td onclick="calculer(1,'+')">+</td>
+                <td onclick="calculer(1,'-')">-</td>
+            </tr>
+            <tr>
+                <td onclick="calculer(0,'1')">1</td>
+                <td onclick="calculer(0,'2')">2</td>
+                <td onclick="calculer(0,'3')">3</td>
+                <td onclick="calculer(1,'*')">*</td>
+                <td onclick="calculer(1,'/')">/</td>
+            </tr>
+            <tr>
+                <td colspan="2"  onclick="calculer(0,'0')">0</td>
+                <td onclick="calculer(3,',')">,</td>
+                <td colspan="2" onclick="calculer(1,'=')">=</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        result = 0;
+        ecran = document.querySelector("#ecran");
+        op = "";
+        bol = 1;
+        comma = 0;
+        function calculer(g, v)
+        {
+            switch (g)
+            {
+                case 0: 
+                    if (bol)
+                    {
+                        ecran.value = v;
+                        bol = 0;
+                    }
+                    else
+                    {
+                        if ((comma) && (v == '0')) ecran.value += v;
+                        else ecran.value = parseFloat(ecran.value + v);
+                    }
+                    break
+                case 1: 
+                    if (op != "" && !bol)
+                    {
+                        result = operation(result, op, parseFloat(ecran.value));  
+                        ecran.value = result;                 
+                    }
+                    else result = parseFloat(ecran.value);
+                    if (v != '=') op = v;
+                    else op = "";
+                    bol = 1;
+                    comma = 0;
+                    break
+                case 2: 
+                    if (v == 'C')
+                    {
+                        result = 0;
+                        op = "";
+                    }
+                    ecran.value = "0";
+                    bol = 1;
+                    comma = 0;
+                    break
+                case 3: 
+                    if (!comma)
+                    {
+                        ecran.value += '.';
+                        comma = 1;
+                        bol = 0;
+                    }
+            }
+        }
+        function operation(x, op, y)
+        {
+            switch (op)
+            {
+                case '+': return x+y;
+                case '-': return x-y;
+                case '*': return x*y;
+                case '/': 
+                    if (y != 0) return x/y;
+                    ecran.value = "Error";
+                    sol = 0;
+                    op = "";
+                    exit(0);
+            }
+        }
+    </script>
+</body>
+</html>

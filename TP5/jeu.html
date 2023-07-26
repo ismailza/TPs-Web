@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu éducatif</title>
+    <style>
+        .box {
+            border: 1px solid black;
+            width: 400px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <table align="center">
+            <tr>
+                <th colspan="2">Jeu Educatif</th>
+            </tr>
+            <tr>
+                <td>Nombre 1 : </td>
+                <td><input type="text" id="num1" disabled></td>
+            </tr>
+            <tr>
+                <td>Nombre 2 : </td>
+                <td><input type="text" id="num2" disabled></td>
+            </tr>
+            <tr>
+                <td><label for="rep">Réponse : </label></td>
+                <td><input type="text" id="rep"></td>
+            </tr>
+            <tr>
+                <td>Solution : </td>
+                <td><input type="text" id="sol" disabled></td>
+            </tr>
+            <tr>
+                <td>Appréciation : </td>
+                <td><input type="text" id="appr" disabled></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="jeu();">Nouveau jeu</button>
+                    <button onclick="evaluer();">Evaluer</button>
+                    <button onclick="solution();">Voir la solution</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        document.body.onload = jeu;
+        function calculer()
+        {
+            let num1 = document.querySelector("#num1").value;
+            let num2 = document.querySelector("#num2").value;
+            let sol = Number(num1) + Number(num2);
+            return sol;
+        }
+        function evaluer()
+        {
+            let msg = document.querySelector("#appr");
+            let rep = document.querySelector("#rep").value;
+            if (rep == "")
+            {
+                alert("Reponse est obligatoire"); return;
+            }
+            if (isNaN(rep = Number(rep)))
+            {
+                alert("Reponse doit etre un nombre"); return;
+            }
+            if (calculer() == rep) 
+            {
+                msg.value = "Très bien";
+                msg.style.color = "green";
+                solution();
+            }
+            else 
+            {
+                msg.value = "Attention";
+                msg.style.color = "red";
+            }
+        }
+        function solution()
+        {
+            document.querySelector("#sol").value = calculer();
+        }
+        function jeu()
+        {
+            document.querySelector("#num1").value = Math.floor(Math.random()* 100);
+            document.querySelector("#num2").value = Math.floor(Math.random()* 100);
+            document.querySelector("#rep").value = "";
+            document.querySelector("#sol").value = "";
+            document.querySelector("#appr").value = "";
+        }
+    </script>
+</body>
+</html>

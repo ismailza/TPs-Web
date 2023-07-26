@@ -1,0 +1,20 @@
+.container {
+    padding: 0 40px;
+}
+.auth {
+    display: grid;
+    place-items: center;
+}
+.error {
+    background-color: rgba(255, 0, 0, 0.719);
+    color: #000;
+    border: 1px solid rgb(134, 4, 4);
+    border-radius: 5px;
+}
+.table {
+    width: 100%;
+}
+.table .consult {
+    background-color: gainsboro;
+    border-color: gray;
+}

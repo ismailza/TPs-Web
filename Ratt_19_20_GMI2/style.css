@@ -1,0 +1,17 @@
+.container {
+    display: grid;
+    place-items: center;
+}
+.container table {
+    background-color: pink;
+}  
+.menu {
+    display: flex;
+    justify-content: center;
+}
+.menu ul {
+    background-color: pink;
+    width: 85%;
+    list-style-type: none;
+    padding: 5px 0;
+}

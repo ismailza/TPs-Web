@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <style>
+        td {
+            width: 15px;
+            height: 15px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        lignes : <input type="number" name="ligne" id="ligne" value="0" onchange="f()"> <br>
+        colonnes : <input type="number" name="colonne" id="colonne" value="0" onchange="f()"> <br>
+    </form>
+    <button onclick="f()">Dessiner</button>
+    <hr>
+    <input type="color" name="color" id="color" onchange="t();">
+    <div id="box">
+        
+    </div>
+    <script>
+        function f()
+        {
+            let l = document.querySelector("#ligne").value;
+            let c = document.querySelector("#colonne").value;
+            document.querySelector("#box").innerHTML = g(l,c);
+        }
+        color = "black";
+        function t()
+        {
+            color = document.getElementById("color").value;
+        }
+        function g(l,c)
+        {
+            if (l == 0 || c == 0) return "";
+            let tab = "<table border='1'>";
+            for (i = 0; i < l; i++)
+            {
+                tab += "<tr>";
+                for (j = 0; j < c; j++) tab += "<td onmouseover='this.style.backgroundColor=color;'></td>";
+                tab += "</tr>";
+            }
+            tab += "</table>";
+            return tab;
+        }
+    </script>
+</body>
+</html>

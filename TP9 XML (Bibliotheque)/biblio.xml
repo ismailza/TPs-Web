@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="biblio.xsl" ?>
+<bibliotheque xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="biblio.xsd">
+    
+    <etudiant code="1" nom="ZAHIR" prenom="Ismail" age="22" email="ismailza407@gmail.com">
+        <livre id="1" titre="XML" datePret="2023-04-17" rendu="NON"/>
+        <livre id="2" titre="PHP" datePret="2022-05-28" rendu="OUI"/>
+    </etudiant>
+    <etudiant code="2" nom="NOM" prenom="Prenom" age="22" email="ismailza407@gmail.com">
+        <livre id="3" titre="JAVA" datePret="2022-05-28" rendu="OUI"/>
+        <livre id="4" titre="C++" datePret="2022-05-28" rendu="NON"/>
+    </etudiant>
+    
+</bibliotheque>

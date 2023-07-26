@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+form {
+    width: 360px;
+    padding: 15px;
+    border: 1px solid #000;
+    border-radius: 8px;
+}
+table th {
+    font-size: 24px;
+}
+input {
+    margin: 10px;
+}   
+input[type=submit]
+{
+    width: 100px;
+    color: #fff;
+    background-color: #109382; 
+    border: 0;
+    border-radius: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+.success, .error {
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+.success {
+    border: 1px solid rgb(1, 65, 1);
+    background-color: #4CAF50;
+}
+.error {
+    border: 1px solid rgb(87, 0, 0);
+    background-color: #F44336;
+}
